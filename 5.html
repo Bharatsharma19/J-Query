@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".student").click(function () {
+          // alert($(this).attr("studentname"));
+
+          var data = `<table border='1' cellspacing='0' cellpadding='5'>
+            <tr>
+            <td>
+            ${$(this).attr("studentname")}
+            </td>
+             <td>
+            ${$(this).attr("age")}</td> 
+            <td>
+            ${$(this).attr("gender")}</td></tr></table>`;
+
+          $("#result").html(data);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <center>
+      <input
+        type="button"
+        class="student"
+        id="btn"
+        value="Click Here"
+        studentname="Ram"
+        gender="Male"
+        age="21"
+      />
+      <input
+        type="button"
+        class="student"
+        id="btn"
+        value="Click Here"
+        studentname="Shyam"
+        gender="Male"
+        age="20"
+      />
+      <input
+        type="button"
+        class="student"
+        id="btn"
+        value="Click Here"
+        studentname="Seeta"
+        gender="Female"
+        age="21"
+      />
+      <br /><br />
+      <h3 id="result"></h3>
+    </center>
+  </body>
+</html>
