@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var state = [
+          "--Choose State--",
+          "Haryana",
+          "Punjab",
+          "Gujrat",
+          "Bihar",
+        ];
+
+        state.map((item) => {
+          $("#stname").append($("<option>").text(item));
+        });
+
+        function fillCity(cities) {
+          cities.map((item) => {
+            $("#cityname").append($("<option>").text(item));
+          });
+        }
+
+        $("#stname").change(function () {
+          $("#cityname").empty();
+
+          if ($("#stname").val() == "Haryana") {
+            var ch = ["--Choose City--", "Rohtak", "Gurugram"];
+            fillCity(ch);
+          } else if ($("#stname").val() == "Punjab") {
+            var cp = ["--Choose City--", "Amritsar"];
+            fillCity(cp);
+          } else if ($("#stname").val() == "Gujrat") {
+            var cg = ["--Choose City--", "Gandhinagar"];
+            fillCity(cg);
+          } else if ($("#stname").val() == "Bihar") {
+            var cb = ["--Choose City--", "Patna"];
+            fillCity(cb);
+          }
+
+          /*  
+          ch.map((item) => {
+            $("#cityname").append($("<option>").text(item));
+          });
+          cp.map((item) => {
+            $("#cityname").append($("<option>").text(item));
+          });
+          cg.map((item) => {
+            $("#cityname").append($("<option>").text(item));
+          });
+          cb.map((item) => {
+            $("#cityname").append($("<option>").text(item));
+          });
+          */
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <select name="" id="stname"></select>
+    <br /><br />
+    <select name="" id="cityname"></select>
+    <br /><br />
+    <input type="button" id="btn" value="Click Here" />
+    <br /><br />
+    <div id="result"></div>
+  </body>
+</html>
